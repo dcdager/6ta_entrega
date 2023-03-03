@@ -1,0 +1,21 @@
+
+<div class="card mb-3 container" >
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img [src]="usuario.image" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h2 class="card-title mt-4">{{usuario.first_name}}</h2>
+          <h2 class="card-title">{{usuario.last_name}}</h2>
+          <p class="card-text mt-3" ><span style="font-weight: bold">Nombre de usuario:</span> {{usuario.username}}</p>
+          <p class="card-text"><span style="font-weight: bold">Email:</span> {{usuario.email}}</p>
+          <div class="btn-group mt-3" role="group" aria-label="Basic outlined example">
+              <button type="button" class="btn btn-outline-primary" (click)="deleteUser(usuario._id)">Eliminar</button>
+              <button type="button" class="btn btn-outline-primary" [routerLink]="['/update',usuario._id]">Actualizar</button>
+              <button type="button" class="btn btn-outline-primary" [routerLink]="['/home']">Volver a listado</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

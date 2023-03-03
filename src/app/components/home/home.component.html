@@ -1,9 +1,12 @@
 
-<div class="container">
-    <ul class="row g-3">
-        <li class="col-lg-3 col-md-4 col-sm-5" *ngFor="let usuario of arrusuarios">
+<div class="container mt-4" >
+    <ul class="row g-3 nolink">
+        <li class="col-lg-4 col-md-6 col-sm-12" *ngFor="let usuario of arrusuarios | paginate: { itemsPerPage: 10 , currentPage: p ,totalItems: 15}">
             <app-usuario [miUsuario]="usuario"></app-usuario>
         </li>
         
     </ul>
+</div>
+<div class="pagination mt-4">
+<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
 </div>

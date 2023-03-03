@@ -10,6 +10,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 export class HomeComponent implements OnInit {
 
   arrusuarios : Usuario[] = []
+  p: number = 1;
 
   
   
@@ -20,11 +21,14 @@ export class HomeComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     let response = await this.usuariosService.getAll();
     this.arrusuarios = response.results;
+    
 
     }
 
-
-
-  
+  async onPageChange(pageNumber: number)  {
+    this.p = pageNumber;
+    let response = await this.usuariosService.getAll(pageNumber);
+    this.arrusuarios = response.results;
+  }
 
 }
